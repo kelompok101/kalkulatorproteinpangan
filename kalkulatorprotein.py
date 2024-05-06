@@ -271,7 +271,7 @@ elif selected == "Tabel Protein":
 
     df = pd.DataFrame({
         "Produk": list(default_protein.keys()),
-        "Konsentrasi Protein (%)": list(default_protein.values())
+        "Konsentrasi Protein (per 100 gram)": list(default_protein.values())
     })
 
     st.write("Berikut adalah tabel konsentrasi protein untuk beberapa produk makanan umum:")
