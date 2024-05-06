@@ -1,16 +1,8 @@
 import streamlit as st
-from streamlit_option_menu import sidebar as som_sidebar
 import pandas as pd
 
 # Menu sidebar
-with st.sidebar:
-    selected = som_sidebar.option_menu(
-        menu_title="Navigasi",
-        options=["Perkenalan Kelompok", "Pengetahuan", "Perhitungan", "Tabel Protein"],
-        icons=["house", "book", "calculator", "table"],
-        menu_icon="menu",
-        default_index=0,
-    )
+selected = st.sidebar.radio("Menu",["Perkenalan Kelompok", "Pengetahuan", "Perhitungan", "Tabel Protein"])
 
 # Halaman Pengetahuan
 if selected == "Pengetahuan":
