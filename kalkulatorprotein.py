@@ -4,6 +4,35 @@ import pandas as pd
 # Menu sidebar
 selected = st.sidebar.radio("Menu",["Perkenalan Kelompok", "Pengetahuan", "Perhitungan", "Tabel Protein"])
 
+# Opsi untuk mengubah gaya teks atau warna pada sidebar
+opsi = st.sidebar.selectbox("Opsi", ["Normal", "Teks Tebal", "Warna Merah", "Warna Hijau", "Warna Biru", "Warna Pelangi"])
+
+# Modifikasi gaya teks atau warna berdasarkan opsi yang dipilih
+if opsi == "Teks Tebal":
+    st.markdown("<style>h1 {font-weight: bold;}</style>", unsafe_allow_html=True)
+elif opsi == "Warna Merah":
+    st.markdown("<style>h1 {color: red;}</style>", unsafe_allow_html=True)
+elif opsi == "Warna Hijau":
+    st.markdown("<style>h1 {color: green;}</style>", unsafe_allow_html=True)
+elif opsi == "Warna Biru":
+    st.markdown("<style>h1 {color: blue;}</style>", unsafe_allow_html=True)
+elif opsi == "Warna Pelangi":
+    st.markdown("""
+    <style>
+    @keyframes animateRainbow {
+        0% {color: red;}
+        14% {color: orange;}
+        28% {color: yellow;}
+        42% {color: green;}
+        56% {color: blue;}
+        70% {color: indigo;}
+        84% {color: violet;}
+        100% {color: red;}
+    }
+    h1 {animation: animateRainbow 7s infinite;}
+    </style>
+    """, unsafe_allow_html=True)
+
 # Halaman Pengetahuan
 if selected == "Pengetahuan":
     st.title("Pengetahuan Tentang Kadar Protein 🧠🥦💪")
