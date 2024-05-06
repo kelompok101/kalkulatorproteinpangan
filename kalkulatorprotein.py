@@ -4,7 +4,7 @@ import pandas as pd
 
 # Menu sidebar
 with st.sidebar:
-    selected = option_menu(
+    selected = som_sidebar.option_menu(
         menu_title="Navigasi",
         options=["Perkenalan Kelompok", "Pengetahuan", "Perhitungan", "Tabel Protein"],
         icons=["house", "book", "calculator", "table"],
