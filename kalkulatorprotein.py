@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 
 # Menu sidebar
-selected = st.sidebar.radio("Menu",["Perkenalan Kelompok", "Pengetahuan", "Perhitungan", "Tabel Protein"])
+selected = st.sidebar.radio("Menu",["Perkenalan Kelompok", "Pengetahuan", "Perhitungan", "Rekomendasi Makanan", "Tabel Protein"])
 
 # Opsi untuk mengubah gaya teks atau warna pada sidebar
 opsi = st.sidebar.selectbox("Opsi", ["Normal", "Teks Tebal", "Warna Merah", "Warna Hijau", "Warna Biru", "Warna Pelangi"])
@@ -212,6 +212,58 @@ elif selected == "Perhitungan":
             st.warning("Kadar protein dalam produk ini kurang dari batas bawah kebutuhan harian Anda.")
         elif kadar_protein > kebutuhan_protein_atas:
             st.warning("Kadar protein dalam produk ini melebihi batas atas kebutuhan harian Anda.")
+
+# Halaman Opsi Makanan
+elif selected == "Rekomendasi Makanan":
+    st.title("🍽 Rekomendasi Makanan Berdasarkan Kebutuhan Protein Harian 🍗🥦🍳")
+
+    st.write("Masukkan informasi tentang diri Anda untuk mendapatkan rekomendasi makanan berdasarkan kebutuhan protein harian Anda.")
+
+    berat_badan = st.number_input("Masukkan berat badan Anda (kg):", min_value=0.0, step=0.1, format="%.1f")
+    usia = st.number_input("Masukkan usia Anda (tahun):", min_value=0, step=1, format="%d")
+    kategori_aktivitas = st.selectbox("Pilih kategori aktivitas Anda:", ["Rendah", "Sedang", "Tinggi"])
+    jenis_kelamin = st.radio("Pilih jenis kelamin Anda:", ["Pria", "Wanita"])
+
+    # Logika rekomendasi makanan berdasarkan kebutuhan protein harian pengguna
+    if st.button("Dapatkan Rekomendasi"):
+        if jenis_kelamin == "Pria":
+            faktor = 1.0
+        else:
+            faktor = 0.9
+
+        if kategori_aktivitas == "Rendah":
+            faktor_aktivitas = 0.8
+        elif kategori_aktivitas == "Sedang":
+            faktor_aktivitas = 1.0
+        else:
+            faktor_aktivitas = 1.2
+
+        kebutuhan_protein_harian = faktor * faktor_aktivitas * berat_badan
+
+        # Menambahkan rekomendasi makanan berdasarkan kebutuhan protein harian pengguna
+        rekomendasi_makanan = []
+        if kebutuhan_protein_harian >= 50:
+            rekomendasi_makanan.append("Daging Ayam Panggang")
+            rekomendasi_makanan.append("Salad Sayuran dengan Telur Rebus")
+            rekomendasi_makanan.append("Tahu Goreng dengan Sambal Kacang")
+            rekomendasi_makanan.append("Kacang-kacangan Panggang")
+            rekomendasi_makanan.append("Smoothie Buah dengan Yoghurt")
+        elif kebutuhan_protein_harian >= 30:
+            rekomendasi_makanan.append("Telur Dadar dengan Sayuran")
+            rekomendasi_makanan.append("Sup Kacang Merah")
+            rekomendasi_makanan.append("Roti Gandum dengan Keju")
+            rekomendasi_makanan.append("Pasta dengan Saus Tomat dan Daging Cincang")
+        else:
+            rekomendasi_makanan.append("Bubur Oat dengan Buah-buahan")
+            rekomendasi_makanan.append("Yoghurt dengan Alpukat dan Madu")
+            rekomendasi_makanan.append("Sandwich Alpukat dan Telur Rebus")
+            rekomendasi_makanan.append("Smoothie Bayam dengan Pisang dan Whey Protein")
+
+        st.success(f"Kebutuhan protein harian Anda adalah {kebutuhan_protein_harian:.2f} gram.")
+
+        st.write("Berikut adalah beberapa rekomendasi makanan yang bisa Anda pertimbangkan:")
+        for makanan in rekomendasi_makanan:
+            st.write(f"- {makanan}")
 
 # Halaman Tabel Protein
 elif selected == "Tabel Protein":
