@@ -217,6 +217,12 @@ elif selected == "Perhitungan":
 elif selected == "Rekomendasi Makanan":
     st.title("🍽 Rekomendasi Makanan Berdasarkan Kebutuhan Protein Harian 🍗🥦🍳")
 
+    # Garis pembatas berwarna-warni
+    st.markdown(
+    '<hr style="border: none; height: 5px; background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);"/>',
+    unsafe_allow_html=True
+)
+    
     st.write("Masukkan informasi tentang diri Anda untuk mendapatkan rekomendasi makanan berdasarkan kebutuhan protein harian Anda.")
 
     berat_badan = st.number_input("Masukkan berat badan Anda (kg):", min_value=0.0, step=0.1, format="%.1f")
