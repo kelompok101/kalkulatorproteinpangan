@@ -1,6 +1,33 @@
 import streamlit as st
+import time
 import pandas as pd
 
+# Fungsi untuk menghasilkan animasi teks
+def animate_text():
+    st.markdown('<span style="color: fuchsia; font-size: 24px; font-family: Algerian;">Hay, Selamat datang</span>', unsafe_allow_html=True)
+    for i in range(1):
+        st.markdown('<span style="color: red; font-size: 24px; font-family: Agency FB;">Terimakasih telah mengunjungi WebApps </span>', unsafe_allow_html=True)
+        time.sleep(1)
+    for i in range(1):
+        st.markdown('<span style="color: navy; font-size: 24px; font-family: Agency FB;">  🧮 Kalkulator Perhitungan Kadar Protein ini 🍏🥩 </span>', unsafe_allow_html=True)
+        time.sleep(1)
+    for i in range(1):
+        st.markdown('<span style="color: green; font-size: 24px; font-family: Agency FB;"> 👩🏼‍💻 🖥 Web Apps Kalkulator Perhitungan Kadar Protein ini dipersembahkan untuk kalian , </span>', unsafe_allow_html=True)
+        time.sleep(1)
+    for i in range(1):
+        st.markdown('<span style="color: orange; font-size: 24px; font-family:Agency FB;">Agar membantu dalam menghitung dan memantau asupan protein harian kalian 🍽🍽 <3 <3 <3  </span>', unsafe_allow_html=True)
+        time.sleep(1)
+    for i in range(1):
+        st.markdown('<span style="color: brown; font-size: 30px; font-family: Agency FB;">Enjoy xixixixixi, Salam dari kami Kelompok 10  </span>', unsafe_allow_html=True)
+        time.sleep(3)
+    st.title("")
+    st.text("")
+    
+# Menampilkan animasi teks jika aplikasi dijalankan untuk pertama kalinya
+if "animation_started" not in st.session_state:
+    st.session_state["animation_started"] = True
+    animate_text()
+    
 # Menu sidebar
 selected = st.sidebar.radio("Menu",["Perkenalan Kelompok", "Pengetahuan", "Perhitungan", "Rekomendasi Makanan", "Tabel Protein"])
 
@@ -76,6 +103,7 @@ if selected == "Pengetahuan":
     st.subheader("Aktivitas Tinggi:")
     st.write("Orang yang memiliki aktivitas fisik yang tinggi, seperti atlet atau pekerja fisik, membutuhkan lebih banyak protein untuk memperbaiki dan membangun otot yang rusak selama latihan.")
     st.write("Kebutuhan protein harian untuk orang dengan aktivitas tinggi adalah sekitar 1,2 - 1,5 gram protein per kilogram berat badan.")
+    pass
 
 # Halaman Pengantar
 elif selected == "Perkenalan Kelompok":
@@ -101,6 +129,7 @@ elif selected == "Perkenalan Kelompok":
     st.info(f"👥 Kelompok: {nama_kelompok}")
     st.write("Anggota tim:")
     st.write(anggota_tim.replace("\n", "\n"))
+    pass
 
 # Halaman Perhitungan
 elif selected == "Perhitungan":
@@ -212,6 +241,7 @@ elif selected == "Perhitungan":
             st.warning("Kadar protein dalam produk ini kurang dari batas bawah kebutuhan harian Anda.")
         elif kadar_protein > kebutuhan_protein_atas:
             st.warning("Kadar protein dalam produk ini melebihi batas atas kebutuhan harian Anda.")
+        pass
 
 # Halaman Opsi Makanan
 elif selected == "Rekomendasi Makanan":
@@ -270,6 +300,7 @@ elif selected == "Rekomendasi Makanan":
         st.write("Berikut adalah beberapa rekomendasi makanan yang bisa Anda pertimbangkan:")
         for makanan in rekomendasi_makanan:
             st.write(f"- {makanan}")
+        pass
 
 # Halaman Tabel Protein
 elif selected == "Tabel Protein":
@@ -334,3 +365,4 @@ elif selected == "Tabel Protein":
 
     st.write("Berikut adalah tabel konsentrasi protein untuk beberapa produk makanan umum:")
     st.dataframe(df)
+    pass
