@@ -29,7 +29,7 @@ if "animation_started" not in st.session_state:
     animate_text()
     
 # Menu sidebar
-selected = st.sidebar.radio("Menu",["Perkenalan Kelompok", "Pengetahuan", "Perhitungan", "Rekomendasi Makanan", "Tabel Protein"])
+selected = st.sidebar.radio("Menu",["Perkenalan Kelompok", "Pengetahuan", "Perhitungan", "Informasi Nutrisi pada Makanan", "Rekomendasi Makanan", "Tabel Protein"])
 
 # Opsi untuk mengubah gaya teks atau warna pada sidebar
 opsi = st.sidebar.selectbox("Opsi", ["Normal", "Teks Tebal", "Warna Merah", "Warna Hijau", "Warna Biru", "Warna Pelangi"])
@@ -242,6 +242,90 @@ elif selected == "Perhitungan":
         elif kadar_protein > kebutuhan_protein_atas:
             st.warning("Kadar protein dalam produk ini melebihi batas atas kebutuhan harian Anda.")
         pass
+
+# Halaman untuk informasi terkait nutrisi makanan
+elif selected == "Informasi Nutrisi pada Makanan":
+    st.title("Menu Informasi Nutrisi")
+    st.markdown(
+        '<hr style="border: none; height: 5px; background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);"/>',
+        unsafe_allow_html=True
+    )
+    st.write("Menu ini memberikan informasi tentang nutrisi dari berbagai jenis makanan.")
+    st.write("Pilih makanan dari opsi di sebelah kiri untuk melihat informasi nutrisinya.")
+    def display_nutrition_info(food_item):
+        # Informasi nutrisi untuk makanan tertentu
+        nutrition_info = {
+            "Daging Sapi": {"Protein": 26.0, "Karbohidrat": 0.0, "Lemak": 17.0, "Kalori": 250},
+            "Daging Ayam": {"Protein": 25.0, "Karbohidrat": 0.0, "Lemak": 3.6, "Kalori": 137},
+            "Daging Kambing": {"Protein": 27.0, "Karbohidrat": 0.0, "Lemak": 21.0, "Kalori": 294},
+            "Daging Babi": {"Protein": 25.0, "Karbohidrat": 0.0, "Lemak": 20.0, "Kalori": 271},
+            "Daging Ikan": {"Protein": 20.0, "Karbohidrat": 0.0, "Lemak": 8.0, "Kalori": 165},
+            "Daging Domba": {"Protein": 23.0, "Karbohidrat": 0.0, "Lemak": 18.0, "Kalori": 235},
+            "Daging Rusa": {"Protein": 22.0, "Karbohidrat": 0.0, "Lemak": 2.0, "Kalori": 120},
+            "Susu Sapi": {"Protein": 3.5, "Karbohidrat": 4.7, "Lemak": 3.2, "Kalori": 42},
+            "Susu Kambing": {"Protein": 4.0, "Karbohidrat": 4.6, "Lemak": 3.8, "Kalori": 60},
+            "Telur Ayam": {"Protein": 12.0, "Karbohidrat": 0.7, "Lemak": 9.5, "Kalori": 140},
+            "Telur Bebek": {"Protein": 13.0, "Karbohidrat": 1.1, "Lemak": 10.0, "Kalori": 155},
+            "Telur Puyuh": {"Protein": 11.0, "Karbohidrat": 0.6, "Lemak": 8.0, "Kalori": 115},
+            "Kacang Merah": {"Protein": 22.0, "Karbohidrat": 62.0, "Lemak": 0.6, "Kalori": 333},
+            "Kacang Hijau": {"Protein": 24.0, "Karbohidrat": 63.0, "Lemak": 0.8, "Kalori": 336},
+            "Kacang Kedelai": {"Protein": 35.0, "Karbohidrat": 30.0, "Lemak": 17.0, "Kalori": 415},
+            "Oat": {"Protein": 17.0, "Karbohidrat": 66.0, "Lemak": 7.0, "Kalori": 389},
+            "Beras": {"Protein": 7.0, "Karbohidrat": 77.0, "Lemak": 0.8, "Kalori": 123},
+            "Gandum": {"Protein": 13.0, "Karbohidrat": 71.0, "Lemak": 1.4, "Kalori": 329},
+            "Brokoli": {"Protein": 3.7, "Karbohidrat": 7.0, "Lemak": 0.4, "Kalori": 34},
+            "Bayam": {"Protein": 2.9, "Karbohidrat": 3.6, "Lemak": 0.6, "Kalori": 23},
+            "Kangkung": {"Protein": 2.9, "Karbohidrat": 1.2, "Lemak": 0.2, "Kalori": 20},
+            "Pisang": {"Protein": 1.3, "Karbohidrat": 27.0, "Lemak": 0.4, "Kalori": 105},
+            "Apel": {"Protein": 0.3, "Karbohidrat": 14.0, "Lemak": 0.3, "Kalori": 52},
+            "Jeruk": {"Protein": 0.9, "Karbohidrat": 9.0, "Lemak": 0.3, "Kalori": 43},
+            "Tahu Putih": {"Protein": 19.9, "Karbohidrat": 2.4, "Lemak": 3.3, "Kalori": 121},
+            "Tahu Kuning": {"Protein": 20.5, "Karbohidrat": 6.4, "Lemak": 7.4, "Kalori": 152},
+            "Tempe Mendoan": {"Protein": 20.3, "Karbohidrat": 10.4, "Lemak": 16.0, "Kalori": 215},
+            "Tempe Goreng": {"Protein": 19.0, "Karbohidrat": 10.1, "Lemak": 17.7, "Kalori": 198},
+            "Keju Cheddar": {"Protein": 25.0, "Karbohidrat": 1.3, "Lemak": 33.1, "Kalori": 403},
+            "Keju Mozzarella": {"Protein": 22.0, "Karbohidrat": 2.2, "Lemak": 22.0, "Kalori": 318},
+            "Yoghurt Plain": {"Protein": 3.5, "Karbohidrat": 4.7, "Lemak": 3.0, "Kalori": 61},
+            "Yoghurt Buah": {"Protein": 3.8, "Karbohidrat": 15.9, "Lemak": 0.4, "Kalori": 95},
+            "Roti Gandum": {"Protein": 8.0, "Karbohidrat": 48.0, "Lemak": 1.5, "Kalori": 241},
+            "Roti Tawar": {"Protein": 7.5, "Karbohidrat": 45.0, "Lemak": 1.0, "Kalori": 223},
+            "Kentang Rebus": {"Protein": 2.0, "Karbohidrat": 17.5, "Lemak": 0.1, "Kalori": 82},
+            "Kentang Goreng": {"Protein": 3.3, "Karbohidrat": 31.3, "Lemak": 15.4, "Kalori": 312},
+            "Sosis Ayam": {"Protein": 13.0, "Karbohidrat": 1.9, "Lemak": 16.0, "Kalori": 185},
+            "Sosis Sapi": {"Protein": 15.0, "Karbohidrat": 3.0, "Lemak": 22.3, "Kalori": 260},
+            "Biskuit Gandum": {"Protein": 6.0, "Karbohidrat": 70.0, "Lemak": 15.0, "Kalori": 417},
+            "Biskuit Cokelat": {"Protein": 4.0, "Karbohidrat": 65.0, "Lemak": 21.0, "Kalori": 450},
+            "Nasi Putih": {"Protein": 2.6, "Karbohidrat": 28.0, "Lemak": 0.3, "Kalori": 130}, 
+            "Nasi Merah": {"Protein": 2.9, "Karbohidrat": 28.2, "Lemak": 0.6, "Kalori": 136}, 
+            "Spaghetti": {"Protein": 5.0, "Karbohidrat": 25.0, "Lemak": 1.3, "Kalori": 131}, 
+            "Penne": {"Protein": 5.1, "Karbohidrat": 25.0, "Lemak": 1.2, "Kalori": 130} 
+            # Tambahkan makanan lainnya di sini
+        }
+        if food_item in nutrition_info:
+            st.write(f"Informasi Nutrisi untuk {food_item}:")
+            with st.container():
+                col1, col2 = st.columns([1, 1])
+                with col1:
+                    st.write("Nutrisi")
+                    st.write("Protein")
+                    st.write("Karbohidrat")
+                    st.write("Lemak")
+                    st.write("Kalori")
+                with col2:
+                    st.write("Nilai")
+                    st.write(nutrition_info[food_item]["Protein"])
+                    st.write(nutrition_info[food_item]["Karbohidrat"])
+                    st.write(nutrition_info[food_item]["Lemak"])
+                    st.write(nutrition_info[food_item]["Kalori"])
+        else:
+            st.write("Maaf, informasi nutrisi untuk makanan tersebut tidak tersedia.")
+
+    # Pilihan makanan
+    food_item = st.selectbox("Pilih Makanan", ["Daging Sapi","Daging Ayam","Daging Kambing","Daging Babi","Daging Ikan","Daging Domba", " Daging Rusa", "Susu Sapi", " Susu Kambing", "Telur Ayam", " Telur Bebek", "Telur Puyuh", " Kacang Merah", "Kacang Hijau", "Kacang Kedelai", " Oat", "Beras", " Gandum ", " Brokoli", "Kangkung", " Pisang", "Apel", " Jeruk", "Tahu Putih", " Tahu Kuning", "Tempe Mendoan", " Tempe Goreng", "Keju Cheddar", " Keju Mozzarella", "Yogurt Plain", " Yogurt Buah", "Roti Gandum", " Roti Tawar", "Kentang Rebus", " Kentang Goreng", "Sosis Ayam", " Sosis Sapi", "Biskuit Gandum", "Biskuit Cokelat", "Nasi Putih", " Nasi Merah", "Spaghetti", " Penne"])
+
+    # Tombol untuk mendapatkan informasi nutrisi
+    if st.button("Dapatkan Informasi Nutrisi"):
+        display_nutrition_info(food_item)
 
 # Halaman Opsi Makanan
 elif selected == "Rekomendasi Makanan":
