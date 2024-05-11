@@ -88,7 +88,7 @@ if selected == "Pengetahuan":
     st.title("Pengetahuan Tentang Kadar Protein 🧠🥦💪")
     st.write("Di sini Anda dapat menemukan informasi tentang kadar protein dan pentingnya asupan protein dalam makanan.")
     image_path = 'protein_image.jpg'  # Ganti dengan path yang sesuai ke file gambar Anda
-    st.image(image_path, caption='Ilustrasi Kadar Protein dalam Berbagai Makanan')
+    st.image(image_path, caption='Protein dalam Berbagai Makanan')
     
     # Garis pembatas berwarna-warni
     st.markdown(
