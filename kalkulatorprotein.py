@@ -2,6 +2,25 @@ import streamlit as st
 import time
 import pandas as pd
 
+# Fungsi untuk mengatur warna background
+def set_background_color(color):
+    st.markdown(
+        f"""
+        <style>
+        .stApp {{
+            background-color: {color};
+        }}
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
+
+# Fungsi utama aplikasi
+def main():
+    # Pemilihan warna background
+    color = st.color_picker("Pilih warna untuk background:", "#FFFFFF")
+    set_background_color(color)
+
 # Fungsi untuk menghasilkan animasi teks
 def animate_text():
     st.markdown('<span style="color: fuchsia; font-size: 24px; font-family: Algerian;">Hay, Selamat datang</span>', unsafe_allow_html=True)
@@ -450,3 +469,6 @@ elif selected == "Tabel Protein":
     st.write("Berikut adalah tabel konsentrasi protein untuk beberapa produk makanan umum:")
     st.dataframe(df)
     pass
+
+if __name__ == "__main__":
+    main()
