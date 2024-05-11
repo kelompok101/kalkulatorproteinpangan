@@ -52,7 +52,7 @@ if "animation_started" not in st.session_state:
     animate_text()
     
 # Menu sidebar
-selected = st.sidebar.radio("Menu",["Perkenalan Kelompok", "Pengetahuan", "Perhitungan", "Informasi Nutrisi pada Makanan", "Rekomendasi Makanan", "Tabel Protein"])
+selected = st.sidebar.radio("Menu",["Perkenalan Kelompok", "Informasi Mengenai WebApps", "Pengetahuan Kebutuhan Harian", "Perhitungan", "Informasi Nutrisi pada Makanan", "Rekomendasi Makanan", "Tabel Protein"])
 
 # Opsi untuk mengubah gaya teks atau warna pada sidebar
 opsi = st.sidebar.selectbox("Opsi", ["Normal", "Teks Tebal", "Warna Merah", "Warna Hijau", "Warna Biru", "Warna Pelangi"])
@@ -84,9 +84,9 @@ elif opsi == "Warna Pelangi":
     """, unsafe_allow_html=True)
 
 # Halaman Pengetahuan
-if selected == "Pengetahuan":
-    st.title("Pengetahuan Tentang Kadar Protein 🧠🥦💪")
-    st.write("Di sini Anda dapat menemukan informasi tentang kadar protein dan pentingnya asupan protein dalam makanan.")
+if selected == "Informasi Mengenai WebApps":
+    st.title("Informasi Mengenai WebApps Kalkulator Kadar Protein 🧠🥦💪")
+    st.write("Di sini pengguna dapat menemukan informasi mengenai webapps kalkulator kadar protein")
     image_path = 'protein_image.jpg'  # Ganti dengan path yang sesuai ke file gambar Anda
     st.image(image_path, caption='Protein dalam Berbagai Makanan')
     
@@ -95,13 +95,15 @@ if selected == "Pengetahuan":
     '<hr style="border: none; height: 5px; background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);"/>',
     unsafe_allow_html=True
 )
-
-    st.header("Pentingnya Kadar Protein dalam Berbagai Tingkat Aktivitas")
+    st.write("Pembuatan web app kalkulator kadar protein dimulai dengan identifikasi kebutuhan dan tujuan aplikasi, seperti apakah itu akan digunakan untuk menghitung kadar protein dalam makanan atau untuk rencana diet. Selanjutnya, desainer antarmuka pengguna bekerja untuk membuat tata letak yang menarik dan mudah dinavigasi, sementara pengembang backend merancang algoritma untuk menghitung kadar protein berdasarkan informasi yang dimasukkan pengguna.")
+    st.write("Selanjutnya, kalkulator ini dilakukan banyak pengujian untuk memastikan bahwa kalkulator memberikan hasil yang akurat. Ini seperti menguji sebuah kalkulator fisik untuk memastikan angka yang ditampilkan benar. Setelah itu, kalkulator diluncurkan secara resmi untuk digunakan oleh semua orang.Kami juga terus memperbarui kalkulator dan memperbaiki masalah jika ada. Tujuan kami adalah membuat kalkulator yang mudah digunakan dan membantu pengguna dalam menjaga asupan protein mereka. Semua ini kami lakukan agar Anda bisa menggunakan kalkulator dengan percaya diri dan mendapatkan hasil yang akurat setiap kali menggunakannya.")
+    
+if selected == "Pengetahuan Kebutuhan Harian"
+    st.header("Pentingnya Memenuhi Kebutuhan Harian Protein dalam Berbagai Tingkatan Aktivitas")
 
     st.write("Kadar protein yang dibutuhkan tubuh sehari-hari dapat berbeda-beda tergantung pada usia, jenis kelamin, tinggi dan berat badan, serta berbagai faktor pendukung lainnya. Pedoman yang diterbitkan oleh Food and Nutrition Board of the National Academy of Sciences merekomendasikan bahwa orang dewasa membutuhkan sekitar 50 gram protein per hari yang dapat diperoleh dari makanan berprotein. Namun, kebutuhan protein dapat berbeda untuk individu yang memiliki tingkat aktivitas fisik yang lebih tinggi atau memiliki kebutuhan gizi yang lebih besar, seperti ibu hamil yang membutuhkan peningkatan asupan nutrisi selama kehamilan.")
-
-    st.write("Kalkulator kadar protein kami dapat membantu Anda menghitung kadar protein dalam berbagai produk pangan dan membandingkannya dengan kebutuhan harian Anda.")
-    st.header("Kadar Protein dan Tingkat Aktivitas")
+    
+    st.header("Tingkatan Aktivitas dalam Sehari-hari")
     st.write("Aktivitas fisik seseorang juga memengaruhi kebutuhan protein harian. Berikut adalah rekomendasi kebutuhan protein berdasarkan tingkat aktivitas:")
     # Garis pembatas berwarna-warni
     st.markdown(
@@ -109,6 +111,8 @@ if selected == "Pengetahuan":
     unsafe_allow_html=True
 )
     st.subheader("Aktivitas Rendah:")
+    image_path = 'ringan.jpg'  # Ganti dengan path yang sesuai ke file gambar Anda
+    st.image(image_path, caption='Ilustrasi aktivitas rendah dalam sehari-hari')
     st.write("Orang yang memiliki aktivitas fisik rendah membutuhkan asupan protein yang lebih sedikit dari pada orang yang memiliki tingkat aktivitas fisik yang lebih tinggi.")
     st.write("Kebutuhan protein harian untuk orang dengan aktivitas rendah adalah sekitar 0,8 gram protein per kilogram berat badan.")
     # Garis pembatas berwarna-warni
@@ -118,6 +122,8 @@ if selected == "Pengetahuan":
 )
 
     st.subheader("Aktivitas Sedang:")
+    image_path = 'sedang.jpg'  # Ganti dengan path yang sesuai ke file gambar Anda
+    st.image(image_path, caption='Ilustrasi aktivitas sedang dalam sehari-hari')
     st.write("Orang yang memiliki tingkat aktivitas fisik sedang membutuhkan lebih banyak protein dari pada orang dengan aktivitas fisik yang rendah.")
     st.write("Kebutuhan protein harian untuk orang dengan aktivitas sedang adalah sekitar 1,0 - 1,2 gram protein per kilogram berat badan.")
     # Garis pembatas berwarna-warni
@@ -126,6 +132,8 @@ if selected == "Pengetahuan":
     unsafe_allow_html=True
 )
     st.subheader("Aktivitas Tinggi:")
+    image_path = 'berat.jpg'  # Ganti dengan path yang sesuai ke file gambar Anda
+    st.image(image_path, caption='Ilustrasi aktivitas tinggi dalam sehari-hari')
     st.write("Orang yang memiliki aktivitas fisik yang tinggi, seperti atlet atau pekerja fisik, membutuhkan lebih banyak protein untuk memperbaiki dan membangun otot yang rusak selama latihan.")
     st.write("Kebutuhan protein harian untuk orang dengan aktivitas tinggi adalah sekitar 1,2 - 1,5 gram protein per kilogram berat badan.")
     pass
