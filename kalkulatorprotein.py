@@ -21,6 +21,10 @@ def main():
     color = st.color_picker("Pilih warna untuk background:", "#FFFFFF")
     set_background_color(color)
 
+if __name__ == "__main__":
+    main()
+
+
 # Fungsi untuk menghasilkan animasi teks
 def animate_text():
     st.markdown('<span style="color: fuchsia; font-size: 24px; font-family: Algerian;">Hay, Selamat datang</span>', unsafe_allow_html=True)
@@ -469,6 +473,3 @@ elif selected == "Tabel Protein":
     st.write("Berikut adalah tabel konsentrasi protein untuk beberapa produk makanan umum:")
     st.dataframe(df)
     pass
-
-if __name__ == "__main__":
-    main()
