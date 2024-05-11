@@ -285,7 +285,7 @@ elif selected == "Perhitungan":
 elif selected == "Informasi Nutrisi pada Makanan":
     st.title("Menu Informasi Nutrisi")
     image_path = 'nutrisi.jpg'  # Ganti dengan path yang sesuai ke file gambar Anda
-    st.image(image_path, caption='Ilustrasi aktivitas rendah dalam sehari-hari')
+    st.image(image_path)
     st.markdown(
         '<hr style="border: none; height: 5px; background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);"/>',
         unsafe_allow_html=True
@@ -371,7 +371,7 @@ elif selected == "Informasi Nutrisi pada Makanan":
 elif selected == "Rekomendasi Makanan":
     st.title("🍽 Rekomendasi Makanan Berdasarkan Kebutuhan Protein Harian 🍗🥦🍳")
     image_path = 'rekomendasi.jpg'  # Ganti dengan path yang sesuai ke file gambar Anda
-    st.image(image_path, caption='Ilustrasi aktivitas rendah dalam sehari-hari')
+    st.image(image_path)
     # Garis pembatas berwarna-warni
     st.markdown(
     '<hr style="border: none; height: 5px; background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);"/>',
