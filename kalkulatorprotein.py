@@ -136,7 +136,7 @@ elif selected == "Perkenalan Kelompok":
     st.write("Selamat datang di aplikasi perhitungan kadar protein dalam produk pangan!")
     st.write("Kami hadir untuk membantu Anda menghitung kadar protein dalam berbagai jenis makanan.")
     image_path = 'kerkom3 .jpg'  # Ganti dengan path yang sesuai ke file gambar Anda
-    st.image(image_path, caption='Ilustrasi Kadar Protein dalam Berbagai Makanan')
+    st.image(image_path, caption='Dokumentasi Kelompok 10')
     st.write("Dibuat oleh Kelompok 10 Kelas PMIP Mata Kuliah Logika dan Pemrograman Komputer.")
 
     # Garis pembatas berwarna-warni
