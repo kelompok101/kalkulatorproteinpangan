@@ -170,7 +170,7 @@ elif selected == "Perkenalan Kelompok":
 # Halaman Perhitungan
 elif selected == "Perhitungan":
     st.title("Perhitungan Kadar Protein dalam Produk Pangan 🥩🍳🌽")
-    image_path = 'kalku.jpg'  # Ganti dengan path yang sesuai ke file gambar Anda
+    image_path = 'kalku2.jpg'  # Ganti dengan path yang sesuai ke file gambar Anda
     st.image(image_path)
     st.write("Aplikasi ini menghitung kadar protein dalam produk pangan berdasarkan berbagai parameter.")
 
