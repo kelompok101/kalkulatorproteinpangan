@@ -87,7 +87,9 @@ elif opsi == "Warna Pelangi":
 if selected == "Pengetahuan":
     st.title("Pengetahuan Tentang Kadar Protein 🧠🥦💪")
     st.write("Di sini Anda dapat menemukan informasi tentang kadar protein dan pentingnya asupan protein dalam makanan.")
-
+    image_path = 'protein_image.jpg'  # Ganti dengan path yang sesuai ke file gambar Anda
+    st.image(image_path, caption='Ilustrasi Kadar Protein dalam Berbagai Makanan')
+    
     # Garis pembatas berwarna-warni
     st.markdown(
     '<hr style="border: none; height: 5px; background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);"/>',
