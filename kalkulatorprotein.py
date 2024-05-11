@@ -100,7 +100,8 @@ if selected == "Informasi Mengenai WebApps":
     
 if selected == "Pengetahuan Kebutuhan Harian":
     st.header("Pentingnya Memenuhi Kebutuhan Harian Protein dalam Berbagai Tingkatan Aktivitas")
-
+    image_path = 'pro.jpg'  # Ganti dengan path yang sesuai ke file gambar Anda
+    st.image(image_path)
     st.write("Kadar protein yang dibutuhkan tubuh sehari-hari dapat berbeda-beda tergantung pada usia, jenis kelamin, tinggi dan berat badan, serta berbagai faktor pendukung lainnya. Pedoman yang diterbitkan oleh Food and Nutrition Board of the National Academy of Sciences merekomendasikan bahwa orang dewasa membutuhkan sekitar 50 gram protein per hari yang dapat diperoleh dari makanan berprotein. Namun, kebutuhan protein dapat berbeda untuk individu yang memiliki tingkat aktivitas fisik yang lebih tinggi atau memiliki kebutuhan gizi yang lebih besar, seperti ibu hamil yang membutuhkan peningkatan asupan nutrisi selama kehamilan.")
     
     st.header("Tingkatan Aktivitas dalam Sehari-hari")
