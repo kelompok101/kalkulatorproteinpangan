@@ -18,7 +18,7 @@ def set_background_color(color):
 # Fungsi utama aplikasi
 def main():
     # Pemilihan warna background
-    color = st.color_picker("Pilih warna untuk background:", "#FFFFFF")
+    color = st.color_picker("Pilih warna untuk background:", "#OOOOO")
     set_background_color(color)
 
 if __name__ == "__main__":
