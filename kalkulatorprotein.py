@@ -41,7 +41,7 @@ def animate_text():
         st.markdown('<span style="color: orange; font-size: 24px; font-family:Agency FB;">Agar membantu dalam menghitung dan memantau asupan protein harian kalian 🍽🍽 <3 <3 <3  </span>', unsafe_allow_html=True)
         time.sleep(1)
     for i in range(1):
-        st.markdown('<span style="color: brown; font-size: 30px; font-family: Agency FB;">Enjoy xixixixixi, Salam dari kami Kelompok 10  </span>', unsafe_allow_html=True)
+        st.markdown('<span style="color: red; font-size: 30px; font-family: Agency FB;">Enjoy xixixixixi, Salam dari kami Kelompok 10  </span>', unsafe_allow_html=True)
         time.sleep(3)
     st.title("")
     st.text("")
